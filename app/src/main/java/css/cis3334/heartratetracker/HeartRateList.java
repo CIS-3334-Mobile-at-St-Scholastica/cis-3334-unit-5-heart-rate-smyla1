@@ -60,7 +60,7 @@ public class HeartRateList {
 
 
     public void remove(Integer index){
-        heartRateList.remove(index);
+        final boolean remove = heartRateList.remove(index);
     }
 
 }
