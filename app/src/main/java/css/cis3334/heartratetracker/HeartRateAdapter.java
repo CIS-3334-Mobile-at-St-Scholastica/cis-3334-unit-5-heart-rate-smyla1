@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.support.v4.content.ContextCompat;
 
 public class HeartRateAdapter extends ArrayAdapter<HeartRate> {
 
@@ -45,6 +46,30 @@ public class HeartRateAdapter extends ArrayAdapter<HeartRate> {
 
         TextView tvPulse=(TextView)view.findViewById(R.id.textViewPulse);
         tvPulse.setText(hr.getPulse().toString());
+       // get the range  to display
+        TextView tvRange = (TextView) view.findViewById(R.id.textViewRangeName);
+        tvRange.setText(hr.getRangeName().toString());
+        //get description to display
+        TextView tvDescription = (TextView) view.findViewById(R.id.textViewRangeDescription);
+        tvDescription.setText("\"" + hr.getRangeDescrtiption().toString() +"\"");
+
+        // get range selected
+        // change textViewRangeName color based on range selected
+        Integer range = hr.getRange();
+
+        if (range == 1) { // Moderate
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone1));
+        }else if (range == 2) { // Endurance
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone2));
+        }else if (range == 3) { // Aerobic
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone3));
+        }else if (range == 4) { // Anaerobic
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone4));
+        }else if (range == 5) { // Red Zone
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone5));
+        }else { // Resting
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.colorZone0));
+        }
 
         return(view);
     }
