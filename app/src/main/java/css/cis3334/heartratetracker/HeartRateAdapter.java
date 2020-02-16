@@ -13,13 +13,13 @@ public class HeartRateAdapter extends ArrayAdapter<HeartRate> {
 
     private final Context context;      // The activity calling this adapter
     private HeartRateList hrList;       // The object holding the arraylist of hear rates
-    /**
-     *  @param mainActivity
-     * @param heart_rate_row
-     * @param textViewPulse
-     * @param heartRateList
-     * @param context
-     */
+
+     // @param mainActivity
+     // @param heart_rate_row
+     // @param textViewPulse
+     // @param heartRateList
+     // @param context
+
     public HeartRateAdapter(Context context, int rowLayout, int dummyTV, HeartRateList hrList) {
         super(context, rowLayout, dummyTV, hrList.getList());
         this.context = context;
